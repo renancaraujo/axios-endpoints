@@ -1,0 +1,21 @@
+{   
+    "parser": "babel-eslint",
+    "extends": [
+        "prettier/standard"
+    ],
+    "plugins": ["prettier"],
+    "rules": {
+        "prettier/prettier": "warn",
+        "no-debugger": "warn",
+        "no-var": "warn",
+        "no-console": ["warn", {
+                "allow": [
+                    "warn",
+                    "error"
+                ]
+            }],
+        "max-params": ["warn", 3],
+        "no-mixed-spaces-and-tabs": "warn",
+        "no-trailing-spaces": "warn"
+    }
+}

@@ -2,15 +2,34 @@
   "name": "axios-endpoints",
   "version": "0.0.1",
   "description": "Axios endpoints helps you to create mor concise endpoint mapping with axios. ",
-  "main": "index.js",
+  "jsnext:main": "dist/es/index.js",
+  "main": "dist/cjs/index.js",
+  "module": "dist/es/index.js",
   "scripts": {
-    "build": "parcel build src/index.js",
-    "test": "test"
+    "build": "rollup -c",
+    "test": "jest",
+    "lint": "eslint --ext=js --ext=jsx ./src",
+    "lint:fix": "eslint --fix --ext=js --ext=jsx ./src",
+    "precommit": "lint-staged"
   },
   "author": "Renan C. Araújo",
   "license": "MIT",
+  "homepage": "https://github.com/renancaraujo/axios-endpoints#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com:renancaraujo/axios-endpoints.git"
+  },
   "bugs": {
-    "url": "https://github.com/axios/axios/issues"
+    "url": "https://github.com/renancaraujo/axios-endpoints/issues"
+  },
+  "jest": {
+    "transform": {}
+  },
+  "lint-staged": {
+    "src/**/*.{js,jsx,json}": [
+      "npm run lint:fix",
+      "git add"
+    ]
   },
   "peerDepencies": {
     "axios": "^0.18.0"
@@ -18,7 +37,19 @@
   "devDependencies": {
     "axios": "^0.18.0",
     "axios-mock-adapter": "^1.15.0",
+    "babel-core": "^6.26.3",
+    "babel-eslint": "^8.2.3",
+    "babel-jest": "^23.0.1",
+    "eslint": "^4.19.1",
+    "eslint-config-prettier": "^2.9.0",
+    "eslint-plugin-jsx-a11y": "^6.0.3",
+    "eslint-plugin-prettier": "^2.6.0",
+    "husky": "^0.14.3",
     "jest": "^23.1.0",
-    "parcel-bundler": "^1.8.1"
+    "lint-staged": "^7.2.0",
+    "npm-run-all": "^4.1.3",
+    "parcel-bundler": "^1.8.1",
+    "prettier": "^1.13.5",
+    "rollup": "^0.60.7"
   }
 }

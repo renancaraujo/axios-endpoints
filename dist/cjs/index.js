@@ -1,4 +1,12 @@
-export default function EndpointFactory(axiosInstance) {
+'use strict';
+
+Object.defineProperty(exports, '__esModule', { value: true });
+
+function _interopDefault (ex) { return (ex && (typeof ex === 'object') && 'default' in ex) ? ex['default'] : ex; }
+
+var axios = _interopDefault(require('axios'));
+
+function EndpointFactory(axiosInstance) {
   return class ApiClient {
     constructor(endpoint, endpointOtions) {
       if (typeof endpoint === 'string') {
@@ -51,3 +59,8 @@ export default function EndpointFactory(axiosInstance) {
     }
   };
 }
+
+const Endpoint = EndpointFactory(axios);
+
+exports.Endpoint = Endpoint;
+exports.default = EndpointFactory;

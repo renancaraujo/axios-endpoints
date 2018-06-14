@@ -1,4 +1,6 @@
-export default function EndpointFactory(axiosInstance) {
+import axios from 'axios';
+
+function EndpointFactory(axiosInstance) {
   return class ApiClient {
     constructor(endpoint, endpointOtions) {
       if (typeof endpoint === 'string') {
@@ -51,3 +53,8 @@ export default function EndpointFactory(axiosInstance) {
     }
   };
 }
+
+const Endpoint = EndpointFactory(axios);
+
+export default EndpointFactory;
+export { Endpoint };
