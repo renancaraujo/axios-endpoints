@@ -1,0 +1,1 @@
+{"version":3,"sources":["index.js"],"names":["axiosEndpoints"],"mappings":";;;;;;kBAAwBA;AAAT,SAASA,cAAT,GAAyB;AACpC,WAAO,SAAP;AACH","file":"index.map","sourceRoot":"../src","sourcesContent":["export default function axiosEndpoints(){\n    return \"bobaloo\"\n}"]}

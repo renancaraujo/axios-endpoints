@@ -1,0 +1,24 @@
+{
+  "name": "axios-endpoints",
+  "version": "0.0.1",
+  "description": "Axios endpoints helps you to create mor concise endpoint mapping with axios. ",
+  "main": "index.js",
+  "scripts": {
+    "build": "parcel build src/index.js",
+    "test": "test"
+  },
+  "author": "Renan C. Araújo",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/axios/axios/issues"
+  },
+  "peerDepencies": {
+    "axios": "^0.18.0"
+  },
+  "devDependencies": {
+    "axios": "^0.18.0",
+    "axios-mock-adapter": "^1.15.0",
+    "jest": "^23.1.0",
+    "parcel-bundler": "^1.8.1"
+  }
+}
