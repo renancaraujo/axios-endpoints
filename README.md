@@ -1,5 +1,7 @@
 # Axios endpoints
 
+[![Build Status](https://travis-ci.org/renancaraujo/axios-endpoints.svg?branch=master)](https://travis-ci.org/renancaraujo/axios-endpoints)
+
 Axios endpoints helps you to create a more concise endpoint mapping with a simple but flexible api. It is as wrapper over [axios](https://github.com/axios/axios).
 
 ### Getting started
