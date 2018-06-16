@@ -184,10 +184,10 @@ Type: class
 
 | Parameters    | Type     |
 |---------------|----------------|
-| options | The same object as the [Request Config](https://github.com/axios/axios#request-config) with the extra property |
+| options | The same object as the [Request Config](https://github.com/axios/axios#request-config) with the extra property. <br /> In most cases, `params` and `uriParams` are the more used ones.|
 | payload | The object that will be carried as json payload of the request |
 
-You will probably will use `params` and `uriParams` more often.
+
 
 
 ## Contributing
