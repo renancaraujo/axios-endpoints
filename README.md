@@ -180,11 +180,12 @@ Type: class
 ###### `endpoint#get(options)`
 ###### `endpoint#post(payload, options)`
 ###### `endpoint#put(payload, options)`
+###### `endpoint#patch(payload, options)`
 ###### `endpoint#delete(options)`
 
 | Parameters    | Type     |
 |---------------|----------------|
-| options | The same object as the [Request Config](https://github.com/axios/axios#request-config) with the extra property. <br /> In most cases, `params` and `uriParams` are the more used ones.|
+| options | The same object as the [Request Config](https://github.com/axios/axios#request-config) with the extra property `uriParams`. <br /> You may use  `params` and `uriParams` more often.|
 | payload | The object that will be carried as json payload of the request |
 
 
