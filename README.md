@@ -1,6 +1,7 @@
 # Axios endpoints
 
 [![Build Status](https://travis-ci.org/renancaraujo/axios-endpoints.svg?branch=master)](https://travis-ci.org/renancaraujo/axios-endpoints)
+[![npm version](https://badge.fury.io/js/axios-endpoints.svg)](https://www.npmjs.com/package/axios-endpoints)
 
 Axios endpoints helps you to create a more concise endpoint mapping with a simple but flexible api. It is as wrapper over [axios](https://github.com/axios/axios).
 
@@ -137,7 +138,7 @@ For more information about parameters and returned values, check the API section
 
 
 
-### API
+## API
 
 #### `EndpointFactory`
 ```javascript
@@ -180,11 +181,12 @@ Type: class
 ###### `endpoint#get(options)`
 ###### `endpoint#post(payload, options)`
 ###### `endpoint#put(payload, options)`
+###### `endpoint#patch(payload, options)`
 ###### `endpoint#delete(options)`
 
 | Parameters    | Type     |
 |---------------|----------------|
-| options | The same object as the [Request Config](https://github.com/axios/axios#request-config) with the extra property. <br /> In most cases, `params` and `uriParams` are the more used ones.|
+| options | The same object as the [Request Config](https://github.com/axios/axios#request-config) with the extra property `uriParams`. <br /> You may use  `params` and `uriParams` more often.|
 | payload | The object that will be carried as json payload of the request |
 
 

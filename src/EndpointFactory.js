@@ -39,6 +39,17 @@ export default function EndpointFactory(axiosInstance) {
         ...endpointOptions,
       });
     }
+    patch(payload = {}, options = {}) {
+      const { params = {}, uriParams = {}, ...endpointOptions } = options;
+      return axiosInstance({
+        method: 'patch',
+        url: this.uri || this.uriFunction({ ...uriParams }),
+        data: payload,
+        params,
+        responseType: 'json',
+        ...endpointOptions,
+      });
+    }
     delete(options = {}) {
       const { params = {}, uriParams = {}, ...endpointOptions } = options;
       return axiosInstance({

@@ -124,13 +124,32 @@
           }, endpointOptions));
         }
       }, {
-        key: 'delete',
-        value: function _delete() {
-          var options = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+        key: 'patch',
+        value: function patch() {
+          var payload = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+          var options = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
           var _options$params4 = options.params,
               params = _options$params4 === undefined ? {} : _options$params4,
               _options$uriParams4 = options.uriParams,
               uriParams = _options$uriParams4 === undefined ? {} : _options$uriParams4,
+              endpointOptions = objectWithoutProperties(options, ['params', 'uriParams']);
+
+          return axiosInstance(_extends({
+            method: 'patch',
+            url: this.uri || this.uriFunction(_extends({}, uriParams)),
+            data: payload,
+            params: params,
+            responseType: 'json'
+          }, endpointOptions));
+        }
+      }, {
+        key: 'delete',
+        value: function _delete() {
+          var options = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+          var _options$params5 = options.params,
+              params = _options$params5 === undefined ? {} : _options$params5,
+              _options$uriParams5 = options.uriParams,
+              uriParams = _options$uriParams5 === undefined ? {} : _options$uriParams5,
               endpointOptions = objectWithoutProperties(options, ['params', 'uriParams']);
 
           return axiosInstance(_extends({
