@@ -1,27 +1,25 @@
 {
-    
     "env": {
         "dev": {
             "presets": [
                 [
-                    "env",
+                    "@babel/preset-env",
                     {
                         "modules": false
                     }
                 ]
             ],
             "plugins": [
-                "transform-object-rest-spread",
-                "external-helpers"
+                "@babel/plugin-proposal-object-rest-spread",
+                "@babel/plugin-external-helpers"
             ]
         },
         "test": {
             "presets": [
                 [
-                    "env"
+                    "@babel/preset-env"
                 ]
             ]
         }
     }
-    
 }
