@@ -1,6 +1,6 @@
 {
   "name": "axios-endpoints",
-  "version": "0.0.3",
+  "version": "0.0.5",
   "description": "Axios endpoints helps you to create mor concise endpoint mapping with axios. ",
   "main": "dist/umd/index.js",
   "scripts": {
