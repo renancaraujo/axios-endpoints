@@ -1,4 +1,8 @@
 import babel from 'rollup-plugin-babel';
+import resolve from 'rollup-plugin-node-resolve';
+import pkg from './package.json';
+
+const extensions = ['.ts', '.tsx', '.js', '.jsx', '.json'];
 
 export default [
   {
@@ -15,10 +19,7 @@ export default [
         exports: 'named',
       },
     ],
-    external: [
-      ...Object.keys(pkg.peerDependencies),
-      ...Object.keys(pkg.dependencies),
-    ],
+    external: ["axios"],
     plugins: [
       babel({
         extensions,
