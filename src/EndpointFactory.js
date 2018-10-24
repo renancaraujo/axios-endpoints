@@ -8,7 +8,7 @@ export default function EndpointFactory(axiosInstance) {
       }
       this.endpointOptions = endpointOptions;
     }
-    get(options = {}) {
+    get = (options = {}) => {
       const { params = {}, uriParams = {}, ...endpointOptions } = options;
       return axiosInstance({
         url: this.uri || this.uriFunction({ ...uriParams }),
@@ -16,8 +16,8 @@ export default function EndpointFactory(axiosInstance) {
         responseType: 'json',
         ...endpointOptions,
       });
-    }
-    post(payload = {}, options = {}) {
+    };
+    post = (payload = {}, options = {}) => {
       const { params = {}, uriParams = {}, ...endpointOptions } = options;
       return axiosInstance({
         method: 'post',
@@ -27,8 +27,8 @@ export default function EndpointFactory(axiosInstance) {
         responseType: 'json',
         ...endpointOptions,
       });
-    }
-    put(payload = {}, options = {}) {
+    };
+    put = (payload = {}, options = {}) => {
       const { params = {}, uriParams = {}, ...endpointOptions } = options;
       return axiosInstance({
         method: 'put',
@@ -38,8 +38,8 @@ export default function EndpointFactory(axiosInstance) {
         responseType: 'json',
         ...endpointOptions,
       });
-    }
-    patch(payload = {}, options = {}) {
+    };
+    patch = (payload = {}, options = {}) => {
       const { params = {}, uriParams = {}, ...endpointOptions } = options;
       return axiosInstance({
         method: 'patch',
@@ -49,8 +49,8 @@ export default function EndpointFactory(axiosInstance) {
         responseType: 'json',
         ...endpointOptions,
       });
-    }
-    delete(options = {}) {
+    };
+    delete = (options = {}) => {
       const { params = {}, uriParams = {}, ...endpointOptions } = options;
       return axiosInstance({
         method: 'delete',
@@ -59,6 +59,6 @@ export default function EndpointFactory(axiosInstance) {
         responseType: 'json',
         ...endpointOptions,
       });
-    }
+    };
   };
 }

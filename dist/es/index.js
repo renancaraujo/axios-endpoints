@@ -6,22 +6,6 @@ function _classCallCheck(instance, Constructor) {
   }
 }
 
-function _defineProperties(target, props) {
-  for (var i = 0; i < props.length; i++) {
-    var descriptor = props[i];
-    descriptor.enumerable = descriptor.enumerable || false;
-    descriptor.configurable = true;
-    if ("value" in descriptor) descriptor.writable = true;
-    Object.defineProperty(target, descriptor.key, descriptor);
-  }
-}
-
-function _createClass(Constructor, protoProps, staticProps) {
-  if (protoProps) _defineProperties(Constructor.prototype, protoProps);
-  if (staticProps) _defineProperties(Constructor, staticProps);
-  return Constructor;
-}
-
 function _defineProperty(obj, key, value) {
   if (key in obj) {
     Object.defineProperty(obj, key, {
@@ -93,121 +77,109 @@ function _objectWithoutProperties(source, excluded) {
 }
 
 function EndpointFactory(axiosInstance) {
-  return (
-    /*#__PURE__*/
-    function () {
-      function ApiClient(endpoint, endpointOptions) {
-        _classCallCheck(this, ApiClient);
+  return function ApiClient(endpoint, _endpointOptions) {
+    var _this = this;
 
-        if (typeof endpoint === 'string') {
-          this.uri = endpoint;
-        } else {
-          this.uriFunction = endpoint;
-        }
+    _classCallCheck(this, ApiClient);
 
-        this.endpointOptions = endpointOptions;
-      }
+    _defineProperty(this, "get", function () {
+      var options = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
 
-      _createClass(ApiClient, [{
-        key: "get",
-        value: function get() {
-          var options = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+      var _options$params = options.params,
+          params = _options$params === void 0 ? {} : _options$params,
+          _options$uriParams = options.uriParams,
+          uriParams = _options$uriParams === void 0 ? {} : _options$uriParams,
+          endpointOptions = _objectWithoutProperties(options, ["params", "uriParams"]);
 
-          var _options$params = options.params,
-              params = _options$params === void 0 ? {} : _options$params,
-              _options$uriParams = options.uriParams,
-              uriParams = _options$uriParams === void 0 ? {} : _options$uriParams,
-              endpointOptions = _objectWithoutProperties(options, ["params", "uriParams"]);
+      return axiosInstance(_objectSpread({
+        url: _this.uri || _this.uriFunction(_objectSpread({}, uriParams)),
+        params: params,
+        responseType: 'json'
+      }, endpointOptions));
+    });
 
-          return axiosInstance(_objectSpread({
-            url: this.uri || this.uriFunction(_objectSpread({}, uriParams)),
-            params: params,
-            responseType: 'json'
-          }, endpointOptions));
-        }
-      }, {
-        key: "post",
-        value: function post() {
-          var payload = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
-          var options = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+    _defineProperty(this, "post", function () {
+      var payload = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+      var options = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
 
-          var _options$params2 = options.params,
-              params = _options$params2 === void 0 ? {} : _options$params2,
-              _options$uriParams2 = options.uriParams,
-              uriParams = _options$uriParams2 === void 0 ? {} : _options$uriParams2,
-              endpointOptions = _objectWithoutProperties(options, ["params", "uriParams"]);
+      var _options$params2 = options.params,
+          params = _options$params2 === void 0 ? {} : _options$params2,
+          _options$uriParams2 = options.uriParams,
+          uriParams = _options$uriParams2 === void 0 ? {} : _options$uriParams2,
+          endpointOptions = _objectWithoutProperties(options, ["params", "uriParams"]);
 
-          return axiosInstance(_objectSpread({
-            method: 'post',
-            url: this.uri || this.uriFunction(_objectSpread({}, uriParams)),
-            data: payload,
-            params: params,
-            responseType: 'json'
-          }, endpointOptions));
-        }
-      }, {
-        key: "put",
-        value: function put() {
-          var payload = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
-          var options = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+      return axiosInstance(_objectSpread({
+        method: 'post',
+        url: _this.uri || _this.uriFunction(_objectSpread({}, uriParams)),
+        data: payload,
+        params: params,
+        responseType: 'json'
+      }, endpointOptions));
+    });
 
-          var _options$params3 = options.params,
-              params = _options$params3 === void 0 ? {} : _options$params3,
-              _options$uriParams3 = options.uriParams,
-              uriParams = _options$uriParams3 === void 0 ? {} : _options$uriParams3,
-              endpointOptions = _objectWithoutProperties(options, ["params", "uriParams"]);
+    _defineProperty(this, "put", function () {
+      var payload = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+      var options = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
 
-          return axiosInstance(_objectSpread({
-            method: 'put',
-            url: this.uri || this.uriFunction(_objectSpread({}, uriParams)),
-            data: payload,
-            params: params,
-            responseType: 'json'
-          }, endpointOptions));
-        }
-      }, {
-        key: "patch",
-        value: function patch() {
-          var payload = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
-          var options = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+      var _options$params3 = options.params,
+          params = _options$params3 === void 0 ? {} : _options$params3,
+          _options$uriParams3 = options.uriParams,
+          uriParams = _options$uriParams3 === void 0 ? {} : _options$uriParams3,
+          endpointOptions = _objectWithoutProperties(options, ["params", "uriParams"]);
 
-          var _options$params4 = options.params,
-              params = _options$params4 === void 0 ? {} : _options$params4,
-              _options$uriParams4 = options.uriParams,
-              uriParams = _options$uriParams4 === void 0 ? {} : _options$uriParams4,
-              endpointOptions = _objectWithoutProperties(options, ["params", "uriParams"]);
+      return axiosInstance(_objectSpread({
+        method: 'put',
+        url: _this.uri || _this.uriFunction(_objectSpread({}, uriParams)),
+        data: payload,
+        params: params,
+        responseType: 'json'
+      }, endpointOptions));
+    });
 
-          return axiosInstance(_objectSpread({
-            method: 'patch',
-            url: this.uri || this.uriFunction(_objectSpread({}, uriParams)),
-            data: payload,
-            params: params,
-            responseType: 'json'
-          }, endpointOptions));
-        }
-      }, {
-        key: "delete",
-        value: function _delete() {
-          var options = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+    _defineProperty(this, "patch", function () {
+      var payload = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+      var options = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
 
-          var _options$params5 = options.params,
-              params = _options$params5 === void 0 ? {} : _options$params5,
-              _options$uriParams5 = options.uriParams,
-              uriParams = _options$uriParams5 === void 0 ? {} : _options$uriParams5,
-              endpointOptions = _objectWithoutProperties(options, ["params", "uriParams"]);
+      var _options$params4 = options.params,
+          params = _options$params4 === void 0 ? {} : _options$params4,
+          _options$uriParams4 = options.uriParams,
+          uriParams = _options$uriParams4 === void 0 ? {} : _options$uriParams4,
+          endpointOptions = _objectWithoutProperties(options, ["params", "uriParams"]);
 
-          return axiosInstance(_objectSpread({
-            method: 'delete',
-            url: this.uri || this.uriFunction(_objectSpread({}, uriParams)),
-            params: params,
-            responseType: 'json'
-          }, endpointOptions));
-        }
-      }]);
+      return axiosInstance(_objectSpread({
+        method: 'patch',
+        url: _this.uri || _this.uriFunction(_objectSpread({}, uriParams)),
+        data: payload,
+        params: params,
+        responseType: 'json'
+      }, endpointOptions));
+    });
 
-      return ApiClient;
-    }()
-  );
+    _defineProperty(this, "delete", function () {
+      var options = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+
+      var _options$params5 = options.params,
+          params = _options$params5 === void 0 ? {} : _options$params5,
+          _options$uriParams5 = options.uriParams,
+          uriParams = _options$uriParams5 === void 0 ? {} : _options$uriParams5,
+          endpointOptions = _objectWithoutProperties(options, ["params", "uriParams"]);
+
+      return axiosInstance(_objectSpread({
+        method: 'delete',
+        url: _this.uri || _this.uriFunction(_objectSpread({}, uriParams)),
+        params: params,
+        responseType: 'json'
+      }, endpointOptions));
+    });
+
+    if (typeof endpoint === 'string') {
+      this.uri = endpoint;
+    } else {
+      this.uriFunction = endpoint;
+    }
+
+    this.endpointOptions = _endpointOptions;
+  };
 }
 
 var Endpoint = EndpointFactory(axios);
