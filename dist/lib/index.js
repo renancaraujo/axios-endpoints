@@ -209,6 +209,26 @@ function EndpointFactory(axiosInstance) {
             responseType: 'json'
           }, endpointOptions));
         }
+      }, {
+        key: "patch",
+        value: function patch() {
+          var payload = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+          var options = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+
+          var _options$params6 = options.params,
+              params = _options$params6 === void 0 ? {} : _options$params6,
+              _options$uriParams6 = options.uriParams,
+              uriParams = _options$uriParams6 === void 0 ? {} : _options$uriParams6,
+              endpointOptions = _objectWithoutProperties(options, ["params", "uriParams"]);
+
+          return axiosInstance(_objectSpread({
+            method: 'put',
+            url: this.uri || this.uriFunction(_objectSpread({}, uriParams)),
+            data: payload,
+            params: params,
+            responseType: 'json'
+          }, endpointOptions));
+        }
       }]);
 
       return ApiClient;
