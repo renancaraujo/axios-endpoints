@@ -1,6 +1,7 @@
 # Axios endpoints
 
 [![Build Status](https://travis-ci.org/renancaraujo/axios-endpoints.svg?branch=master)](https://travis-ci.org/renancaraujo/axios-endpoints)
+[![npm](https://img.shields.io/npm/v/axios-endpoints.svg)](https://www.npmjs.com/package/axios-endpoints)
 
 Axios endpoints helps you to create a more concise endpoint mapping with a simple but flexible api. It is as wrapper over [axios](https://github.com/axios/axios).
 
@@ -137,7 +138,7 @@ For more information about parameters and returned values, check the API section
 
 
 
-### API
+## API
 
 #### `EndpointFactory`
 ```javascript
