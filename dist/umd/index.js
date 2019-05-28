@@ -20,6 +20,20 @@
   See the Apache Version 2.0 License for specific language governing permissions
   and limitations under the License.
   ***************************************************************************** */
+  /* global Reflect, Promise */
+
+  var extendStatics = function(d, b) {
+      extendStatics = Object.setPrototypeOf ||
+          ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+          function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+      return extendStatics(d, b);
+  };
+
+  function __extends(d, b) {
+      extendStatics(d, b);
+      function __() { this.constructor = d; }
+      d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+  }
 
   var __assign = function() {
       __assign = Object.assign || function __assign(t) {
@@ -42,51 +56,57 @@
       return t;
   }
 
-  // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
-  var EndpointFactory = function (axiosInstance) {
-      return /** @class */ (function () {
-          function ApiClient(endpoint, endpointOptions) {
-              var _this = this;
-              if (endpointOptions === void 0) { endpointOptions = {}; }
-              this.get = function (options) {
-                  if (options === void 0) { options = {}; }
-                  var uriParams = options.uriParams, endpointOptions = __rest(options, ["uriParams"]);
-                  return axiosInstance(__assign({ url: _this.uri || _this.uriFunction(uriParams), responseType: 'json' }, _this.endpointOptions, endpointOptions));
-              };
-              this.post = function (payload, options) {
-                  if (payload === void 0) { payload = {}; }
-                  if (options === void 0) { options = {}; }
-                  var _a = options.params, params = _a === void 0 ? {} : _a, uriParams = options.uriParams, endpointOptions = __rest(options, ["params", "uriParams"]);
-                  return axiosInstance(__assign({ method: 'post', url: _this.uri || _this.uriFunction(uriParams), data: payload, params: params, responseType: 'json' }, endpointOptions));
-              };
-              this.put = function (payload, options) {
-                  if (payload === void 0) { payload = {}; }
-                  if (options === void 0) { options = {}; }
-                  var _a = options.params, params = _a === void 0 ? {} : _a, uriParams = options.uriParams, endpointOptions = __rest(options, ["params", "uriParams"]);
-                  return axiosInstance(__assign({ method: 'put', url: _this.uri || _this.uriFunction(uriParams), data: payload, params: params, responseType: 'json' }, endpointOptions));
-              };
-              this.patch = function (payload, options) {
-                  if (payload === void 0) { payload = {}; }
-                  if (options === void 0) { options = {}; }
-                  var _a = options.params, params = _a === void 0 ? {} : _a, uriParams = options.uriParams, endpointOptions = __rest(options, ["params", "uriParams"]);
-                  return axiosInstance(__assign({ method: 'patch', url: _this.uri || _this.uriFunction(uriParams), data: payload, params: params, responseType: 'json' }, endpointOptions));
-              };
-              this.delete = function (options) {
-                  if (options === void 0) { options = {}; }
-                  var _a = options.params, params = _a === void 0 ? {} : _a, uriParams = options.uriParams, endpointOptions = __rest(options, ["params", "uriParams"]);
-                  return axiosInstance(__assign({ method: 'delete', url: _this.uri || _this.uriFunction(uriParams), params: params, responseType: 'json' }, endpointOptions));
-              };
-              if (typeof endpoint === 'string') {
-                  this.uri = endpoint;
-              }
-              else {
-                  this.uriFunction = endpoint;
-              }
-              this.endpointOptions = endpointOptions;
+  var EndpointClass = /** @class */ (function () {
+      function EndpointClass(endpoint, endpointOptions) {
+          if (endpointOptions === void 0) { endpointOptions = {}; }
+          if (typeof endpoint === 'string') {
+              this.uri = endpoint;
           }
-          return ApiClient;
-      }());
-  };
+          else {
+              this.uriFunction = endpoint;
+          }
+          this.endpointOptions = endpointOptions;
+      }
+      return EndpointClass;
+  }());
+
+  // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
+  var EndpointFactory = function (axiosInstance) { return /** @class */ (function (_super) {
+      __extends(ApiClient, _super);
+      function ApiClient() {
+          var _this = _super !== null && _super.apply(this, arguments) || this;
+          _this.get = function (options) {
+              if (options === void 0) { options = {}; }
+              var uriParams = options.uriParams, endpointOptions = __rest(options, ["uriParams"]);
+              return axiosInstance(__assign({ url: _this.uri || _this.uriFunction(uriParams), responseType: 'json' }, _this.endpointOptions, endpointOptions));
+          };
+          _this.post = function (payload, options) {
+              if (payload === void 0) { payload = {}; }
+              if (options === void 0) { options = {}; }
+              var _a = options.params, params = _a === void 0 ? {} : _a, uriParams = options.uriParams, endpointOptions = __rest(options, ["params", "uriParams"]);
+              return axiosInstance(__assign({ method: 'post', url: _this.uri || _this.uriFunction(uriParams), data: payload, params: params, responseType: 'json' }, endpointOptions));
+          };
+          _this.put = function (payload, options) {
+              if (payload === void 0) { payload = {}; }
+              if (options === void 0) { options = {}; }
+              var _a = options.params, params = _a === void 0 ? {} : _a, uriParams = options.uriParams, endpointOptions = __rest(options, ["params", "uriParams"]);
+              return axiosInstance(__assign({ method: 'put', url: _this.uri || _this.uriFunction(uriParams), data: payload, params: params, responseType: 'json' }, endpointOptions));
+          };
+          _this.patch = function (payload, options) {
+              if (payload === void 0) { payload = {}; }
+              if (options === void 0) { options = {}; }
+              var _a = options.params, params = _a === void 0 ? {} : _a, uriParams = options.uriParams, endpointOptions = __rest(options, ["params", "uriParams"]);
+              return axiosInstance(__assign({ method: 'patch', url: _this.uri || _this.uriFunction(uriParams), data: payload, params: params, responseType: 'json' }, endpointOptions));
+          };
+          _this.delete = function (options) {
+              if (options === void 0) { options = {}; }
+              var _a = options.params, params = _a === void 0 ? {} : _a, uriParams = options.uriParams, endpointOptions = __rest(options, ["params", "uriParams"]);
+              return axiosInstance(__assign({ method: 'delete', url: _this.uri || _this.uriFunction(uriParams), params: params, responseType: 'json' }, endpointOptions));
+          };
+          return _this;
+      }
+      return ApiClient;
+  }(EndpointClass)); };
 
   var Endpoint = EndpointFactory(axios);
 
