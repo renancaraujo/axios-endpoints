@@ -1,10 +1,12 @@
 import axios from 'axios';
 import MockAdapter from 'axios-mock-adapter';
 import EndpointFactory from './EndpointFactory';
+import { EndpointClass } from './types';
 
-let MockedService;
-describe('mocking axios', function() {
-  beforeAll(() => {
+let MockedService: typeof EndpointClass;
+
+describe('mocking axios', function(): void {
+  beforeAll((): void => {
     const axiosInstance = axios.create();
     const mock = new MockAdapter(axiosInstance);
     mock.onGet('/test').reply(200, 'was a get');
@@ -23,37 +25,37 @@ describe('mocking axios', function() {
     MockedService = EndpointFactory(axiosInstance);
   });
 
-  it('should the request be a get', async () => {
+  it('should the request be a get', async (): Promise<void> => {
     const testService = new MockedService('/test');
     const { data } = await testService.get();
     expect(data).toEqual('was a get');
   });
 
-  it('should the request be a post', async () => {
+  it('should the request be a post', async (): Promise<void> => {
     const testService = new MockedService('/test');
     const { data } = await testService.post();
     expect(data).toEqual('was a post');
   });
 
-  it('should the request be a put', async () => {
+  it('should the request be a put', async (): Promise<void> => {
     const testService = new MockedService('/test');
     const { data } = await testService.put();
     expect(data).toEqual('was a put');
   });
 
-  it('should the request be a patch', async () => {
+  it('should the request be a patch', async (): Promise<void> => {
     const testService = new MockedService('/test');
     const { data } = await testService.patch();
     expect(data).toEqual('was a patch');
   });
 
-  it('should the request be a delete', async () => {
+  it('should the request be a delete', async (): Promise<void> => {
     const testService = new MockedService('/test');
     const { data } = await testService.delete();
     expect(data).toEqual('was a delete');
   });
 
-  it('should the request be a delete', async () => {
+  it('should the request be a delete', async (): Promise<void> => {
     const testService = new MockedService('/error');
     try {
       await testService.get();
@@ -62,9 +64,9 @@ describe('mocking axios', function() {
     }
   });
 
-  it('should the request be a dynamic get', async () => {
-    const testService = new MockedService(({ id }) => `/${id}`);
-    const { data } = await testService.get({
+  it('should the request be a dynamic get', async (): Promise<void> => {
+    const testService = new MockedService<{id: string}>(({ id }): string => `/${id}`);
+    const { data } = await testService.get<string>({
       uriParams: {
         id: 'dynamic',
       },
@@ -72,8 +74,8 @@ describe('mocking axios', function() {
     expect(data).toEqual('was a dynamic endpoint');
   });
 
-  it('should the request be a dynamic post', async () => {
-    const testService = new MockedService(({ id }) => `/${id}`);
+  it('should the request be a dynamic post', async (): Promise<void> => {
+    const testService = new MockedService(({ id }): string => `/${id}`);
     const { data } = await testService.post(
       {},
       {
@@ -85,8 +87,9 @@ describe('mocking axios', function() {
     expect(data).toEqual('was a dynamic endpoint post');
   });
 
-  it('should the request be a dynamic put', async () => {
-    const testService = new MockedService(({ id }) => `/${id}`);
+  it('should the request be a dynamic put', async (): Promise<void> => {
+    interface UriParamInterface { id: string };
+    const testService = new MockedService<UriParamInterface>(({ id }): string => `/${id}`);
     const { data } = await testService.put(
       {},
       {
@@ -98,8 +101,8 @@ describe('mocking axios', function() {
     expect(data).toEqual('was a dynamic endpoint put');
   });
 
-  it('should the request be a dynamic patch', async () => {
-    const testService = new MockedService(({ id }) => `/${id}`);
+  it('should the request be a dynamic patch', async (): Promise<void> => {
+    const testService = new MockedService(({ id }): string => `/${id}`);
     const { data } = await testService.patch(
       {},
       {
@@ -111,8 +114,8 @@ describe('mocking axios', function() {
     expect(data).toEqual('was a dynamic endpoint patch');
   });
 
-  it('should the request be a dynamic delete', async () => {
-    const testService = new MockedService(({ id }) => `/${id}`);
+  it('should the request be a dynamic delete', async (): Promise<void> => {
+    const testService = new MockedService(({ id }): string => `/${id}`);
     const { data } = await testService.delete({
       uriParams: {
         id: 'dynamicDelete',

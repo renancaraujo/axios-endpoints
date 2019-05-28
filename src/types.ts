@@ -19,8 +19,24 @@ export interface UriParamsWrapper<UriParams>     {
 export interface EndpointsOptions<UriParams> extends AxiosRequestConfig, UriParamsWrapper<UriParams> {}
 
 
-export interface EndpointClass<UriParams = any> {
-  uri: string;
-  uriFunction: UriFunction<UriParams>;
-  endpointOptions: AxiosRequestConfig;
+export class EndpointClass<UriParams = any> {
+  public uri: string;
+  public uriFunction: UriFunction<UriParams>;
+  public endpointOptions: AxiosRequestConfig;
+
+  public constructor(endpoint: string | UriFunction<UriParams>, endpointOptions: AxiosRequestConfig = {}) {
+    if (typeof endpoint === 'string') {
+      this.uri = endpoint;
+    } else {
+      this.uriFunction = endpoint;
+    }
+    this.endpointOptions = endpointOptions;
+  }
+
+  public get: <ResponseTypeAxios = any>(options?: EndpointsOptions<UriParams>) => AxiosPromise<ResponseTypeAxios>;
+  public post: <ResponseTypeAxios = any>(payload?: AnyJson, options?: EndpointsOptions<UriParams>) => AxiosPromise<ResponseTypeAxios>;
+  public put: <ResponseTypeAxios = any>(payload?: AnyJson, options?: EndpointsOptions<UriParams>) => AxiosPromise<ResponseTypeAxios>;
+  public patch: <ResponseTypeAxios = any>(payload?: AnyJson, options?: EndpointsOptions<UriParams>) => AxiosPromise<ResponseTypeAxios>;
+  public delete: <ResponseTypeAxios = any>(options?: EndpointsOptions<UriParams>) =>  AxiosPromise<ResponseTypeAxios>;
+  
 }
