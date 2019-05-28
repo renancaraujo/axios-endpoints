@@ -1,25 +1,25 @@
 import {
-    AxiosRequestConfig,
-    AxiosInstance,
-  } from 'axios';
+  AxiosRequestConfig,
+  AxiosPromise,
+} from 'axios';
   
 export type UriFunction<UriParams> = (uriParams: UriParams) => string;
 
-export type AnyJson =  boolean | number | string | null | IJsonArray | IJsonMap;
-export interface IJsonMap {  [key: string]: AnyJson; }
-export interface IJsonArray extends Array<AnyJson> {}
+export type AnyJson =  boolean | number | string | null | JsonArray | JsonMap;
+export interface JsonMap {  [key: string]: AnyJson }
+export interface JsonArray extends Array<AnyJson> {}
 
 export interface UriParamsInterface{
   [key: string]: AnyJson;
 }
-export interface UriParamsWrapper<UriParams> {
+export interface UriParamsWrapper<UriParams>     {
   uriParams?: UriParams;
 }
 
 export interface EndpointsOptions<UriParams> extends AxiosRequestConfig, UriParamsWrapper<UriParams> {}
 
 
-export interface EndpointClass<UriParams> {
+export interface EndpointClass<UriParams = any> {
   uri: string;
   uriFunction: UriFunction<UriParams>;
   endpointOptions: AxiosRequestConfig;

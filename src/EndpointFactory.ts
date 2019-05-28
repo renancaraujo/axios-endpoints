@@ -1,19 +1,19 @@
 import {
   AxiosRequestConfig,
   AxiosInstance,
+  AxiosPromise,
 } from 'axios';
-import { EndpointClass, UriFunction, EndpointsOptions, UriParamsInterface, AnyJson } from './types';
+import { EndpointClass, UriFunction, EndpointsOptions, AnyJson } from './types';
 
-
-
-export default function EndpointFactory(axiosInstance: AxiosInstance) {
-  return class ApiClient<UriParams extends any = {}> implements EndpointClass<UriParams>{
+// eslint-disable-next-line @typescript-eslint/explicit-function-return-type
+const EndpointFactory = (axiosInstance: AxiosInstance) => {
+  return class ApiClient<UriParams = any> implements EndpointClass<UriParams>{
     
-    uri: string;
-    uriFunction: UriFunction<UriParams>;
-    endpointOptions: AxiosRequestConfig;
+    public uri: string;
+    public uriFunction: UriFunction<UriParams>;
+    public endpointOptions: AxiosRequestConfig;
 
-    constructor(endpoint: string | UriFunction<UriParams>, endpointOptions: AxiosRequestConfig = {}) {
+    public constructor(endpoint: string | UriFunction<UriParams>, endpointOptions: AxiosRequestConfig = {}) {
       if (typeof endpoint === 'string') {
         this.uri = endpoint;
       } else {
@@ -21,7 +21,7 @@ export default function EndpointFactory(axiosInstance: AxiosInstance) {
       }
       this.endpointOptions = endpointOptions;
     }
-    get = (options: EndpointsOptions<UriParams> = {}) => {
+    public get = <ResponseTypeAxios = any>(options: EndpointsOptions<UriParams> = {}): AxiosPromise<ResponseTypeAxios> => {
       const { uriParams, ...endpointOptions } = options;
       return axiosInstance({
         url: this.uri || this.uriFunction(uriParams),
@@ -30,7 +30,7 @@ export default function EndpointFactory(axiosInstance: AxiosInstance) {
         ...endpointOptions,
       });
     };
-    post = (payload: AnyJson = {}, options: EndpointsOptions<UriParams> = {}) => {
+    public post = <ResponseTypeAxios = any>(payload: AnyJson = {}, options: EndpointsOptions<UriParams> = {}): AxiosPromise<ResponseTypeAxios> => {
       const { params = {}, uriParams, ...endpointOptions } = options;
       return axiosInstance({
         method: 'post',
@@ -41,7 +41,7 @@ export default function EndpointFactory(axiosInstance: AxiosInstance) {
         ...endpointOptions,
       });
     };
-    put = (payload: AnyJson = {}, options: EndpointsOptions<UriParams> = {}) => {
+    public put = <ResponseTypeAxios = any>(payload: AnyJson = {}, options: EndpointsOptions<UriParams> = {}): AxiosPromise<ResponseTypeAxios> => {
       const { params = {}, uriParams, ...endpointOptions } = options;
       return axiosInstance({
         method: 'put',
@@ -52,7 +52,7 @@ export default function EndpointFactory(axiosInstance: AxiosInstance) {
         ...endpointOptions,
       });
     };
-    patch = (payload: AnyJson = {}, options: EndpointsOptions<UriParams> = {}) => {
+    public patch = <ResponseTypeAxios = any>(payload: AnyJson = {}, options: EndpointsOptions<UriParams> = {}): AxiosPromise<ResponseTypeAxios> => {
       const { params = {}, uriParams, ...endpointOptions } = options;
       return axiosInstance({
         method: 'patch',
@@ -63,7 +63,7 @@ export default function EndpointFactory(axiosInstance: AxiosInstance) {
         ...endpointOptions,
       });
     };
-    delete = (options: EndpointsOptions<UriParams> = {}) => {
+    public delete = <ResponseTypeAxios = any>(options: EndpointsOptions<UriParams> = {}): AxiosPromise<ResponseTypeAxios> => {
       const { params = {}, uriParams, ...endpointOptions } = options;
       return axiosInstance({
         method: 'delete',
@@ -75,3 +75,5 @@ export default function EndpointFactory(axiosInstance: AxiosInstance) {
     };
   };
 }
+
+export default EndpointFactory;

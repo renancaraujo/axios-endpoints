@@ -1,21 +1,13 @@
 {   
-    "parser": "babel-eslint",
-    "extends": [
-        "prettier/standard"
-    ],
-    "plugins": ["prettier"],
+    "parser": "@typescript-eslint/parser",
+    "extends": ["plugin:@typescript-eslint/recommended"],
+    "plugins": ["@typescript-eslint"],
     "rules": {
-        "prettier/prettier": "warn",
-        "no-debugger": "warn",
-        "no-var": "warn",
-        "no-console": ["warn", {
-                "allow": [
-                    "warn",
-                    "error"
-                ]
-            }],
-        "max-params": ["warn", 3],
-        "no-mixed-spaces-and-tabs": "warn",
-        "no-trailing-spaces": "warn"
+        "@typescript-eslint/indent": ["warn", 2],
+        "@typescript-eslint/no-empty-interface": "off",
+        "@typescript-eslint/no-explicit-any": "off"
+    },
+    "parserOptions": {
+        "project": "./tsconfig.json"
     }
 }

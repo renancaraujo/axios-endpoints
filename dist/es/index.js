@@ -36,7 +36,8 @@ function __rest(s, e) {
     return t;
 }
 
-function EndpointFactory(axiosInstance) {
+// eslint-disable-next-line @typescript-eslint/explicit-function-return-type
+var EndpointFactory = function (axiosInstance) {
     return /** @class */ (function () {
         function ApiClient(endpoint, endpointOptions) {
             var _this = this;
@@ -79,7 +80,7 @@ function EndpointFactory(axiosInstance) {
         }
         return ApiClient;
     }());
-}
+};
 
 var Endpoint = EndpointFactory(axios);
 
