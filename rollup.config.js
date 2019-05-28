@@ -1,13 +1,13 @@
 import babel from 'rollup-plugin-babel';
 import resolve from 'rollup-plugin-node-resolve';
-import pkg from './package.json';
+import typescript from 'rollup-plugin-typescript2';
 
 const extensions = ['.ts', '.tsx', '.js', '.jsx', '.json'];
 
 export default [
   {
     experimentalCodeSplitting: true,
-    input: 'src/index.js',
+    input: 'src/index.ts',
     output: [
       {
         format: 'es',
@@ -19,26 +19,29 @@ export default [
         exports: 'named',
       },
     ],
-    external: ["axios"],
+    external: ['axios'],
     plugins: [
-      babel({
-        extensions,
-        exclude: 'node_modules/**',
-        externalHelpers: true,
+      typescript({
+        typescript: require('typescript'),
       }),
       resolve(),
     ],
   },
   {
-    input: 'src/index.js',
+    input: 'src/index.ts',
     output: [
       {
         file: 'dist/umd/index.js',
         format: 'umd',
         indent: '  ',
         name: 'axiosEndpoints',
+        exports: 'named',
       },
     ],
-    plugins: [babel({ externalHelpers: true })],
+    plugins: [
+      typescript({
+        typescript: require('typescript'),
+      }),
+    ],
   },
 ];

@@ -6,6 +6,10 @@
   "module": "dist/es/index.js",
   "jsnext:main": "src/es/index.js",
   "unpkg": "dist/umd/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "build": "BABEL_ENV=dev rollup -c",
     "prepublishOnly": "npm run build",
@@ -56,6 +60,8 @@
     "regenerator-runtime": "^0.11.1",
     "rollup": "^0.64.1",
     "rollup-plugin-babel": "^4.3.2",
-    "rollup-plugin-node-resolve": "^3.4.0"
+    "rollup-plugin-node-resolve": "^3.4.0",
+    "rollup-plugin-typescript2": "^0.21.1",
+    "typescript": "^3.4.5"
   }
 }
