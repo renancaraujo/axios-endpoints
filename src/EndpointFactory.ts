@@ -22,44 +22,40 @@ const EndpointFactory = (axiosInstance: AxiosInstance): typeof EndpointClass => 
     });
   };
   public post = <ResponseTypeAxios = any>(payload: AnyJson = {}, options: EndpointsOptions<UriParams> = {}): AxiosPromise<ResponseTypeAxios> => {
-    const { params = {}, uriParams, ...endpointOptions } = options;
+    const { uriParams, ...endpointOptions } = options;
     return axiosInstance({
       method: 'post',
       url: this.uri || this.uriFunction(uriParams),
       data: payload,
-      params,
       responseType: 'json',
       ...endpointOptions,
     });
   };
   public put = <ResponseTypeAxios = any>(payload: AnyJson = {}, options: EndpointsOptions<UriParams> = {}): AxiosPromise<ResponseTypeAxios> => {
-    const { params = {}, uriParams, ...endpointOptions } = options;
+    const {  uriParams, ...endpointOptions } = options;
     return axiosInstance({
       method: 'put',
       url: this.uri || this.uriFunction(uriParams),
       data: payload,
-      params,
       responseType: 'json',
       ...endpointOptions,
     });
   };
   public patch = <ResponseTypeAxios = any>(payload: AnyJson = {}, options: EndpointsOptions<UriParams> = {}): AxiosPromise<ResponseTypeAxios> => {
-    const { params = {}, uriParams, ...endpointOptions } = options;
+    const { uriParams, ...endpointOptions } = options;
     return axiosInstance({
       method: 'patch',
       url: this.uri || this.uriFunction(uriParams),
       data: payload,
-      params,
       responseType: 'json',
       ...endpointOptions,
     });
   };
   public delete = <ResponseTypeAxios = any>(options: EndpointsOptions<UriParams> = {}): AxiosPromise<ResponseTypeAxios> => {
-    const { params = {}, uriParams, ...endpointOptions } = options;
+    const { uriParams, ...endpointOptions } = options;
     return axiosInstance({
       method: 'delete',
       url: this.uri || this.uriFunction(uriParams),
-      params,
       responseType: 'json',
       ...endpointOptions,
     });
