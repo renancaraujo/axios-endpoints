@@ -5,7 +5,6 @@ import {
 } from 'axios';
 import { EndpointClass, UriFunction, EndpointsOptions, AnyJson } from './types';
 
-// eslint-disable-next-line @typescript-eslint/explicit-function-return-type
 const EndpointFactory = (axiosInstance: AxiosInstance): typeof EndpointClass => class ApiClient<UriParams> extends EndpointClass<UriParams>{
     
   public uri: string;

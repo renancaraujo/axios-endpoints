@@ -1,6 +1,6 @@
 {
   "name": "axios-endpoints",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Axios endpoints helps you to create mor concise endpoint mapping with axios. ",
   "main": "dist/lib/index.js",
   "module": "dist/es/index.js",
@@ -35,13 +35,13 @@
     ]
   },
   "peerDepencies": {
-    "axios": "^0.18.0"
+    "axios": "^0.19.0"
   },
   "devDependencies": {
     "@types/jest": "^24.0.13",
     "@typescript-eslint/eslint-plugin": "^1.9.0",
     "@typescript-eslint/parser": "^1.9.0",
-    "axios": "^0.18.0",
+    "axios": "^0.19.0",
     "axios-mock-adapter": "^1.15.0",
     "eslint": "^5.16.0",
     "husky": "^0.14.3",
