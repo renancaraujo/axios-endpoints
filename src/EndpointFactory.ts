@@ -20,7 +20,7 @@ const EndpointFactory = (axiosInstance: AxiosInstance): typeof EndpointClass => 
       ...endpointOptions,
     });
   };
-  public post = <ResponseTypeAxios = any>(payload: AnyJson = {}, options: EndpointsOptions<UriParams> = {}): AxiosPromise<ResponseTypeAxios> => {
+  public post = <ResponseTypeAxios = any>(payload: any = {}, options: EndpointsOptions<UriParams> = {}): AxiosPromise<ResponseTypeAxios> => {
     const { uriParams, ...endpointOptions } = options;
     return axiosInstance({
       method: 'post',
@@ -30,7 +30,7 @@ const EndpointFactory = (axiosInstance: AxiosInstance): typeof EndpointClass => 
       ...endpointOptions,
     });
   };
-  public put = <ResponseTypeAxios = any>(payload: AnyJson = {}, options: EndpointsOptions<UriParams> = {}): AxiosPromise<ResponseTypeAxios> => {
+  public put = <ResponseTypeAxios = any>(payload: any = {}, options: EndpointsOptions<UriParams> = {}): AxiosPromise<ResponseTypeAxios> => {
     const {  uriParams, ...endpointOptions } = options;
     return axiosInstance({
       method: 'put',
@@ -40,7 +40,7 @@ const EndpointFactory = (axiosInstance: AxiosInstance): typeof EndpointClass => 
       ...endpointOptions,
     });
   };
-  public patch = <ResponseTypeAxios = any>(payload: AnyJson = {}, options: EndpointsOptions<UriParams> = {}): AxiosPromise<ResponseTypeAxios> => {
+  public patch = <ResponseTypeAxios = any>(payload: any = {}, options: EndpointsOptions<UriParams> = {}): AxiosPromise<ResponseTypeAxios> => {
     const { uriParams, ...endpointOptions } = options;
     return axiosInstance({
       method: 'patch',
