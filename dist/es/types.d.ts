@@ -20,8 +20,8 @@ export declare class EndpointClass<UriParams = any> {
     endpointOptions: AxiosRequestConfig;
     constructor(endpoint: string | UriFunction<UriParams>, endpointOptions?: AxiosRequestConfig);
     get: <ResponseTypeAxios = any>(options?: EndpointsOptions<UriParams>) => AxiosPromise<ResponseTypeAxios>;
-    post: <ResponseTypeAxios = any>(payload?: AnyJson, options?: EndpointsOptions<UriParams>) => AxiosPromise<ResponseTypeAxios>;
-    put: <ResponseTypeAxios = any>(payload?: AnyJson, options?: EndpointsOptions<UriParams>) => AxiosPromise<ResponseTypeAxios>;
-    patch: <ResponseTypeAxios = any>(payload?: AnyJson, options?: EndpointsOptions<UriParams>) => AxiosPromise<ResponseTypeAxios>;
+    post: <ResponseTypeAxios = any>(payload?: any, options?: EndpointsOptions<UriParams>) => AxiosPromise<ResponseTypeAxios>;
+    put: <ResponseTypeAxios = any>(payload?: any, options?: EndpointsOptions<UriParams>) => AxiosPromise<ResponseTypeAxios>;
+    patch: <ResponseTypeAxios = any>(payload?: any, options?: EndpointsOptions<UriParams>) => AxiosPromise<ResponseTypeAxios>;
     delete: <ResponseTypeAxios = any>(options?: EndpointsOptions<UriParams>) => AxiosPromise<ResponseTypeAxios>;
 }

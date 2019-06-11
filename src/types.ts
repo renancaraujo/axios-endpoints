@@ -34,9 +34,9 @@ export class EndpointClass<UriParams = any> {
   }
 
   public get: <ResponseTypeAxios = any>(options?: EndpointsOptions<UriParams>) => AxiosPromise<ResponseTypeAxios>;
-  public post: <ResponseTypeAxios = any>(payload?: AnyJson, options?: EndpointsOptions<UriParams>) => AxiosPromise<ResponseTypeAxios>;
-  public put: <ResponseTypeAxios = any>(payload?: AnyJson, options?: EndpointsOptions<UriParams>) => AxiosPromise<ResponseTypeAxios>;
-  public patch: <ResponseTypeAxios = any>(payload?: AnyJson, options?: EndpointsOptions<UriParams>) => AxiosPromise<ResponseTypeAxios>;
+  public post: <ResponseTypeAxios = any>(payload?: any, options?: EndpointsOptions<UriParams>) => AxiosPromise<ResponseTypeAxios>;
+  public put: <ResponseTypeAxios = any>(payload?: any, options?: EndpointsOptions<UriParams>) => AxiosPromise<ResponseTypeAxios>;
+  public patch: <ResponseTypeAxios = any>(payload?: any, options?: EndpointsOptions<UriParams>) => AxiosPromise<ResponseTypeAxios>;
   public delete: <ResponseTypeAxios = any>(options?: EndpointsOptions<UriParams>) =>  AxiosPromise<ResponseTypeAxios>;
   
 }
