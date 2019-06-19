@@ -3,7 +3,7 @@ import {
   AxiosInstance,
   AxiosPromise,
 } from 'axios';
-import { EndpointClass, UriFunction, EndpointsOptions, AnyJson } from './types';
+import { EndpointClass, UriFunction, EndpointsOptions } from './types';
 
 const EndpointFactory = (axiosInstance: AxiosInstance): typeof EndpointClass => class ApiClient<UriParams> extends EndpointClass<UriParams>{
     
