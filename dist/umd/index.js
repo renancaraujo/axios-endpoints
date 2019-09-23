@@ -1,8 +1,8 @@
 (function (global, factory) {
   typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('axios')) :
   typeof define === 'function' && define.amd ? define(['exports', 'axios'], factory) :
-  (factory((global.axiosEndpoints = {}),global.axios));
-}(this, (function (exports,axios) { 'use strict';
+  (global = global || self, factory(global.axiosEndpoints = {}, global.axios));
+}(this, function (exports, axios) { 'use strict';
 
   axios = axios && axios.hasOwnProperty('default') ? axios['default'] : axios;
 
@@ -51,8 +51,10 @@
       for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p) && e.indexOf(p) < 0)
           t[p] = s[p];
       if (s != null && typeof Object.getOwnPropertySymbols === "function")
-          for (var i = 0, p = Object.getOwnPropertySymbols(s); i < p.length; i++) if (e.indexOf(p[i]) < 0)
-              t[p[i]] = s[p[i]];
+          for (var i = 0, p = Object.getOwnPropertySymbols(s); i < p.length; i++) {
+              if (e.indexOf(p[i]) < 0 && Object.prototype.propertyIsEnumerable.call(s, p[i]))
+                  t[p[i]] = s[p[i]];
+          }
       return t;
   }
 
@@ -77,7 +79,7 @@
           _this.get = function (options) {
               if (options === void 0) { options = {}; }
               var uriParams = options.uriParams, endpointOptions = __rest(options, ["uriParams"]);
-              return axiosInstance(__assign({ url: _this.uri || _this.uriFunction(uriParams), responseType: 'json' }, _this.endpointOptions, endpointOptions));
+              return axiosInstance(__assign(__assign({ url: _this.uri || _this.uriFunction(uriParams), responseType: 'json' }, _this.endpointOptions), endpointOptions));
           };
           _this.post = function (payload, options) {
               if (payload === void 0) { payload = {}; }
@@ -114,4 +116,4 @@
 
   Object.defineProperty(exports, '__esModule', { value: true });
 
-})));
+}));
