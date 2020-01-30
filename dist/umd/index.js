@@ -2,7 +2,7 @@
   typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('axios')) :
   typeof define === 'function' && define.amd ? define(['exports', 'axios'], factory) :
   (global = global || self, factory(global.axiosEndpoints = {}, global.axios));
-}(this, function (exports, axios) { 'use strict';
+}(this, (function (exports, axios) { 'use strict';
 
   axios = axios && axios.hasOwnProperty('default') ? axios['default'] : axios;
 
@@ -116,4 +116,4 @@
 
   Object.defineProperty(exports, '__esModule', { value: true });
 
-}));
+})));

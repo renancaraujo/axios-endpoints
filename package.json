@@ -1,6 +1,6 @@
 {
   "name": "axios-endpoints",
-  "version": "0.2.3",
+  "version": "0.2.4",
   "description": "Axios endpoints helps you to create mor concise endpoint mapping with axios. ",
   "main": "dist/lib/index.js",
   "module": "dist/es/index.js",
