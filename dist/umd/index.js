@@ -4,7 +4,7 @@
   (global = global || self, factory(global.axiosEndpoints = {}, global.axios));
 }(this, (function (exports, axios) { 'use strict';
 
-  axios = axios && axios.hasOwnProperty('default') ? axios['default'] : axios;
+  axios = axios && Object.prototype.hasOwnProperty.call(axios, 'default') ? axios['default'] : axios;
 
   /*! *****************************************************************************
   Copyright (c) Microsoft Corporation. All rights reserved.

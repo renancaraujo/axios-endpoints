@@ -5,7 +5,6 @@ const extensions = ['.ts', '.tsx', '.js', '.jsx', '.json'];
 
 export default [
   {
-    experimentalCodeSplitting: true,
     input: 'src/index.ts',
     output: [
       {
@@ -34,9 +33,13 @@ export default [
         format: 'umd',
         indent: '  ',
         name: 'axiosEndpoints',
+        globals: {
+          axios: 'axios'
+        },
         exports: 'named',
       },
     ],
+    external: ['axios'],
     plugins: [
       typescript({
         typescript: require('typescript'),
