@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-/*! *****************************************************************************
+/******************************************************************************
 Copyright (c) Microsoft Corporation.
 
 Permission to use, copy, modify, and/or distribute this software for any
@@ -107,5 +107,4 @@ var EndpointFactory = function (axiosInstance) { return /** @class */ (function 
 
 var Endpoint = EndpointFactory(axios);
 
-export default EndpointFactory;
-export { Endpoint };
+export { Endpoint, EndpointFactory as default };

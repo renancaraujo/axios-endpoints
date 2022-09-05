@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.0.3
+
+- Update deps to remove vulnerabilities
+
+
 ## 1.0.2
 
 - Update deps to remove vulnerabilities

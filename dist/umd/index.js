@@ -2,13 +2,13 @@
   typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('axios')) :
   typeof define === 'function' && define.amd ? define(['exports', 'axios'], factory) :
   (global = typeof globalThis !== 'undefined' ? globalThis : global || self, factory(global.axiosEndpoints = {}, global.axios));
-}(this, (function (exports, axios) { 'use strict';
+})(this, (function (exports, axios) { 'use strict';
 
   function _interopDefaultLegacy (e) { return e && typeof e === 'object' && 'default' in e ? e : { 'default': e }; }
 
   var axios__default = /*#__PURE__*/_interopDefaultLegacy(axios);
 
-  /*! *****************************************************************************
+  /******************************************************************************
   Copyright (c) Microsoft Corporation.
 
   Permission to use, copy, modify, and/or distribute this software for any
@@ -113,11 +113,11 @@
       return ApiClient;
   }(EndpointClass)); };
 
-  var Endpoint = EndpointFactory(axios__default['default']);
+  var Endpoint = EndpointFactory(axios__default["default"]);
 
   exports.Endpoint = Endpoint;
-  exports.default = EndpointFactory;
+  exports["default"] = EndpointFactory;
 
   Object.defineProperty(exports, '__esModule', { value: true });
 
-})));
+}));

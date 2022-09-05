@@ -8,7 +8,7 @@ function _interopDefaultLegacy (e) { return e && typeof e === 'object' && 'defau
 
 var axios__default = /*#__PURE__*/_interopDefaultLegacy(axios);
 
-/*! *****************************************************************************
+/******************************************************************************
 Copyright (c) Microsoft Corporation.
 
 Permission to use, copy, modify, and/or distribute this software for any
@@ -113,7 +113,7 @@ var EndpointFactory = function (axiosInstance) { return /** @class */ (function 
     return ApiClient;
 }(EndpointClass)); };
 
-var Endpoint = EndpointFactory(axios__default['default']);
+var Endpoint = EndpointFactory(axios__default["default"]);
 
 exports.Endpoint = Endpoint;
-exports.default = EndpointFactory;
+exports["default"] = EndpointFactory;
