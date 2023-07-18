@@ -39,7 +39,7 @@
   },
   "devDependencies": {
     "@types/jest": "^27.0.1",
-    "@typescript-eslint/eslint-plugin": "^5.52.0",
+    "@typescript-eslint/eslint-plugin": "^6.1.0",
     "@typescript-eslint/parser": "^5.0.0",
     "axios": "^1.1.2",
     "axios-mock-adapter": "^1.15.0",
