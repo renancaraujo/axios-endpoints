@@ -37,8 +37,11 @@
   "peerDepencies": {
     "axios": "^1.1.2"
   },
+  "overrides": {
+    "braces": "^3.0.3"
+  },
   "devDependencies": {
-    "@types/jest": "^27.0.1",
+    "@types/jest": "^29.5.14",
     "@typescript-eslint/eslint-plugin": "^6.7.2",
     "@typescript-eslint/parser": "^5.0.0",
     "axios": "^1.1.2",
